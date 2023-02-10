@@ -31,12 +31,13 @@ function play_sound(e) {
     key = null;
 }
 
-let buttons = document.querySelectorAll("button").forEach(item => 
+//event listening for html buttons wasdjkl
+document.querySelectorAll("button").forEach(item => 
                         item.addEventListener("click", play_sound
                         ));
 
+// event listening for wasdjkl keyboard buttons 
 document.addEventListener("keydown", function (event) {
                                     play_sound(event.key)
                                     }
-
 );                    
