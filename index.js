@@ -15,9 +15,8 @@ function play_sound(e) {
         l: "tom-4.mp3"
     };
     console.log(key, music[key]);
-    let sound = document.createElement("audio");
+    let sound = new Audio(`sounds/${music[key].toLowerCase()}`);
 
-    sound.src = `sounds/${music[key].toLowerCase()}`;
     sound.play();
 }
 
