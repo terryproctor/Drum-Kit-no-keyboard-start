@@ -1,10 +1,10 @@
 function play_sound(e) {
-    
-    if (e.key) {
-        key = e.key.toLowerCase();
+    if (this.classList) {     
+        key = String(this.classList[0]);
     } else {
-     key = String(e.target.classList[0]);
+        key = e.toLowerCase();
     }
+    // music jukebox
     let music = {
         w: "crash.mp3",
         a: "kick-bass.mp3",
@@ -14,18 +14,21 @@ function play_sound(e) {
         k: "tom-3.mp3",
         l: "tom-4.mp3"
     };
-    console.log(key, music[key]);
+    // console.log(key, music[key]);
+    //create a sound and play it
     let sound = new Audio(`sounds/${music[key].toLowerCase()}`);
-
     sound.play();
+    // reest key
+    key = null;
 }
 
 let buttons = document.querySelectorAll("button").forEach(item => 
                         item.addEventListener("click", play_sound
                         ));
 
-document.addEventListener("keydown", function(event) {
-        // console.log(event.key);
-        play_sound(event);
-    }
-)                       
+document.addEventListener("keydown", function (event) {
+                                    play_sound(event.key)
+                                    }
+
+);                    
+
