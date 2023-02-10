@@ -1,7 +1,16 @@
 function play_sound(e) {
+    let validKeys = ['w','a','s','d','j','k','l'];
+
+    // html button element clicked
     if (this.classList) {     
         key = String(this.classList[0]);
-    } else {
+    } 
+    // not a valid key, then return out of function
+    else if (!validKeys.includes(e.toLowerCase())) { console.error('Not a valid key'); 
+                                                     return 'Not a valid key';
+                                                    }
+    // assumed valid key
+    else {
         key = e.toLowerCase();
     }
     // music jukebox
@@ -31,4 +40,3 @@ document.addEventListener("keydown", function (event) {
                                     }
 
 );                    
-
